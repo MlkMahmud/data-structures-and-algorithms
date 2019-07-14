@@ -1,7 +1,7 @@
 const { describe, it } = require('mocha');
 const should = require('chai').should();
 const algorithms = require('../algorithms');
-const { isArmstrong, fib, missingNum, uniqueNums } = algorithms;
+const { isArmstrong, fib, missingNum, uniqueNums, validateWithLuhn } = algorithms;
 
 describe('Armstrong', () => {
   it('Should return true if the given number is armstrong number and false otherwise', () => {
@@ -47,4 +47,16 @@ describe('uniqueNums', () => {
     uniqueNums([1, 1, 2, 2, 3, 3, 4]).should.deep.equal([4]);
     uniqueNums([1, 2, 33, 4, 2, 1]).should.deep.equal([33, 4]);
   });
+});
+
+describe('Luhn\'s algoritm', () => {
+  it('Should validate an array of numbers', () => {
+    validateWithLuhn('4869256870975984').should.be.true;
+    validateWithLuhn('4597203494430292').should.be.true;
+    validateWithLuhn('4950192288793836').should.be.true;
+    validateWithLuhn('4861934280421132').should.be.true;
+    validateWithLuhn('4453115147660740').should.be.true;
+    validateWithLuhn('4481201955417682').should.be.true;
+    validateWithLuhn('1234567898765432').should.be.false;
+  })
 });
