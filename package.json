@@ -4,7 +4,7 @@
   "description": "",
   "main": "linkedList.js",
   "scripts": {
-    "test": "npx mocha"
+    "test": "mocha **/*.spec.js"
   },
   "keywords": [],
   "author": "Malik Mahmud <almalikmahmud@gmail.com>",
